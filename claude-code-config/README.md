@@ -43,29 +43,33 @@ The status line and `/savings` command are built to read RTK analytics and displ
 
 ## Installation
 
-1. Clone this repo:
+### Quick install (recommended)
+
+```bash
+git clone https://github.com/nodox-studio/nodox-open.git
+cd nodox-open/claude-code-config
+bash install.sh
+```
+
+The installer will:
+- Copy slash commands to `~/.claude/commands/`
+- Install the status line script (backs up your existing one)
+- Detect or offer to install [RTK](https://github.com/rtk-ai/rtk)
+- Skip files that already exist (safe to re-run)
+
+### Manual install
+
+1. Copy commands and status line:
    ```bash
-   git clone https://github.com/guillevarela/claude-code-config.git
+   cp -r commands/ ~/.claude/commands/
+   cp statusline.sh ~/.claude/statusline.sh
+   chmod +x ~/.claude/statusline.sh
    ```
 
-2. Copy files to your Claude Code config directory:
+2. Install RTK (optional but recommended):
    ```bash
-   cp -r claude-code-config/commands/ ~/.claude/commands/
-   cp claude-code-config/statusline.sh ~/.claude/statusline.sh
-   ```
-
-3. Install RTK (optional but recommended):
-   ```bash
-   # See https://github.com/rtk-ai/rtk for installation instructions
-   ```
-
-4. Configure the status line in your Claude Code settings (add to `~/.claude/settings.json`):
-   ```json
-   {
-     "status_line": {
-       "script": "~/.claude/statusline.sh"
-     }
-   }
+   curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+   rtk init -g
    ```
 
 ## Stack
@@ -125,29 +129,33 @@ El status line y el comando `/savings` leen las analíticas de RTK y muestran el
 
 ## Instalación
 
-1. Clona este repo:
+### Instalación rápida (recomendada)
+
+```bash
+git clone https://github.com/nodox-studio/nodox-open.git
+cd nodox-open/claude-code-config
+bash install.sh
+```
+
+El instalador:
+- Copia los slash commands a `~/.claude/commands/`
+- Instala el status line (hace backup del existente)
+- Detecta u ofrece instalar [RTK](https://github.com/rtk-ai/rtk)
+- No sobreescribe archivos existentes (seguro para re-ejecutar)
+
+### Instalación manual
+
+1. Copia commands y status line:
    ```bash
-   git clone https://github.com/guillevarela/claude-code-config.git
+   cp -r commands/ ~/.claude/commands/
+   cp statusline.sh ~/.claude/statusline.sh
+   chmod +x ~/.claude/statusline.sh
    ```
 
-2. Copia los archivos a tu directorio de configuración de Claude Code:
+2. Instala RTK (opcional pero recomendado):
    ```bash
-   cp -r claude-code-config/commands/ ~/.claude/commands/
-   cp claude-code-config/statusline.sh ~/.claude/statusline.sh
-   ```
-
-3. Instala RTK (opcional pero recomendado):
-   ```bash
-   # Ver https://github.com/rtk-ai/rtk para instrucciones de instalación
-   ```
-
-4. Configura el status line en tus settings de Claude Code (añadir a `~/.claude/settings.json`):
-   ```json
-   {
-     "status_line": {
-       "script": "~/.claude/statusline.sh"
-     }
-   }
+   curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+   rtk init -g
    ```
 
 ## Stack
