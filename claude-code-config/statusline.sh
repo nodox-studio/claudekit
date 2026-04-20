@@ -2,7 +2,9 @@
 input=$(cat)
 
 # Session timer — keyed by parent PID
-TIMER_FILE="/tmp/.claude-session-${PPID}"
+TIMER_DIR="${HOME}/.claude/.session-timers"
+mkdir -p "$TIMER_DIR"
+TIMER_FILE="${TIMER_DIR}/${PPID}"
 if [ ! -f "$TIMER_FILE" ]; then
     date +%s > "$TIMER_FILE"
 fi

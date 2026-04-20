@@ -230,7 +230,7 @@ Según lo que el usuario elija:
 - **Comando (.md)**: Copia el archivo desde el directorio del kit a `~/.claude/commands/`. Si no lo encuentras, indica que se descargue el repo.
 - **Guard**: Instala guard.md + lock-claude.md + unlock-claude.md. Ofrece activar npmrc hardening.
 - **Statusline**: Copia `statusline.sh` a `~/.claude/`, hace backup si existe.
-- **RTK**: Ofrece instalar con `curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash`
+- **RTK**: Ofrece instalar descargando primero a temp file: `curl -fsSL -o /tmp/rtk-install.sh https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh && bash /tmp/rtk-install.sh && rm -f /tmp/rtk-install.sh`
 - **Vault/MCP**: Guía paso a paso (Obsidian → plugin → `claude mcp add`)
 
 ### Desinstalar un módulo

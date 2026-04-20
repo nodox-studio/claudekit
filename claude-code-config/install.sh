@@ -61,15 +61,15 @@ echo ""
 echo ""
 
 if [[ "$LANG_CHOICE" == "2" ]]; then
-  LANG="es"
+  CK_LANG="es"
 else
-  LANG="en"
+  CK_LANG="en"
 fi
 
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 #  Bilingual strings
 # ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-if [[ "$LANG" == "es" ]]; then
+if [[ "$CK_LANG" == "es" ]]; then
   # ── Welcome ──
   STR_WELCOME_1="ClaudeKit es un conjunto de herramientas que mejoran tu"
   STR_WELCOME_2="experiencia con Claude Code. Ahorras tokens, organizas"
@@ -499,7 +499,7 @@ echo ""
 echo -e "  ${WHITE}8${NC}) 🚀 ${WHITE}${STR_ALL^^}${NC} ${DIM}— (1-7)${NC}"
 echo ""
 
-if [[ "$LANG" == "es" ]]; then
+if [[ "$CK_LANG" == "es" ]]; then
   STR_HINT="pulsa un número y Enter para continuar"
 else
   STR_HINT="press a number and Enter to continue"
@@ -659,7 +659,8 @@ if [[ "$INSTALL_WORKSPACE" == true ]]; then
         echo ""
         read -p "  ${STR_OBS_STEP3_NAME}" VAULT_NAME
         read -p "  ${STR_OBS_STEP3_PATH}" VAULT_PATH
-        read -p "  ${STR_OBS_STEP3_TOKEN}" VAULT_TOKEN
+        read -s -p "  ${STR_OBS_STEP3_TOKEN}" VAULT_TOKEN
+        echo ""
         echo ""
 
         if [[ -n "$VAULT_NAME" ]] && [[ -n "$VAULT_PATH" ]] && [[ -n "$VAULT_TOKEN" ]]; then
@@ -668,7 +669,7 @@ if [[ "$INSTALL_WORKSPACE" == true ]]; then
             --env "OBSIDIAN_VAULT_PATH=$VAULT_PATH" \
             --env "OBSIDIAN_API_TOKEN=$VAULT_TOKEN" \
             --env "OBSIDIAN_API_PORT=27123" \
-            -- npx -y @huangyihe/obsidian-mcp 2>/dev/null; then
+            -- npx -y @huangyihe/obsidian-mcp@1.6.0 2>/dev/null; then
             echo -e "  ${GREEN}✓${NC} ${STR_OBS_STEP3_OK}"
           else
             echo -e "  ${RED}✗${NC} ${STR_OBS_STEP3_FAIL}"
@@ -677,7 +678,7 @@ if [[ "$INSTALL_WORKSPACE" == true ]]; then
             echo -e "  ${DIM}  --env OBSIDIAN_VAULT_PATH=$VAULT_PATH \\${NC}"
             echo -e "  ${DIM}  --env OBSIDIAN_API_TOKEN=<token> \\${NC}"
             echo -e "  ${DIM}  --env OBSIDIAN_API_PORT=27123 \\${NC}"
-            echo -e "  ${DIM}  -- npx -y @huangyihe/obsidian-mcp${NC}"
+            echo -e "  ${DIM}  -- npx -y @huangyihe/obsidian-mcp@1.6.0${NC}"
           fi
           echo ""
         fi
@@ -796,7 +797,10 @@ if [[ "$INSTALL_RTK" == true ]]; then
     echo ""
     if [[ $REPLY =~ ^[YySs]$ ]] || [[ -z $REPLY ]]; then
       echo -e "  ${DIM}${STR_RTK_INSTALLING}${NC}"
-      curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+      RTK_INSTALLER=$(mktemp /tmp/rtk-install-XXXXXX.sh)
+      curl -fsSL -o "$RTK_INSTALLER" https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh
+      bash "$RTK_INSTALLER"
+      rm -f "$RTK_INSTALLER"
       if command -v rtk &> /dev/null; then
         echo -e "  ${GREEN}✓${NC} ${STR_RTK_SUCCESS}"
         echo -e "  ${DIM}${STR_RTK_HOOKS}${NC}"
@@ -865,6 +869,7 @@ if [[ "$INSTALL_SCAFFOLD" == true ]]; then
   read -p "  ${STR_SCAFFOLD_PATH}" SCAFFOLD_PATH
   echo ""
 
+  SCAFFOLD_PATH=$(realpath "$SCAFFOLD_PATH" 2>/dev/null || echo "$SCAFFOLD_PATH")
   if [ ! -d "$SCAFFOLD_PATH" ]; then
     echo -e "  ${RED}✗${NC} ${STR_SCAFFOLD_NOT_FOUND}"
     echo ""

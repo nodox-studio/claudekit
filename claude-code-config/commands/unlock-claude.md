@@ -20,7 +20,8 @@ Use this python3 one-liner via Bash:
 ```
 python3 -c "
 import json
-p = '/Users/guillermo.varela/.claude/settings.json'
+import os
+p = os.path.join(os.path.expanduser('~'), '.claude', 'settings.json')
 with open(p) as f:
     cfg = json.load(f)
 deny = cfg['permissions']['deny']
