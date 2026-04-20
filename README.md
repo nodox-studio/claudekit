@@ -37,4 +37,20 @@ Compartiendo lo que aprendo en mi camino de Product Designer a Design Engineer.
 
 ---
 
+Nodox Open is a free product by [Nodox Studio](https://nodox.studio), made with heart by Guille Varela.
+
+*Nodox Open es un producto de uso libre de [Nodox Studio](https://nodox.studio), creado con corazón por Guille Varela.*
+
+### Nodox Studio
+
+- Web: [nodox.studio](https://nodox.studio)
+- Email: somos@nodox.studio
+
+### Guille Varela
+
+- LinkedIn: [linkedin.com/in/guillevarela](https://www.linkedin.com/in/guillevarela/)
+- Ko-fi: [ko-fi.com/guillevarela](https://ko-fi.com/guillevarela) ☕
+
+---
+
 MIT License

@@ -1,6 +1,6 @@
-# Claude Code Config -- Design Engineer Toolkit
+# ClaudeKit — Save tokens, work smarter with Claude Code
 
-My personal Claude Code configuration for product design & development workflows. Slash commands, status line, and RTK integration.
+A toolkit that improves your Claude Code experience. Save tokens, organize your projects, and protect your configuration.
 
 **By Guille Varela -- [Nodox Studio](https://nodox.studio)**
 
@@ -46,8 +46,8 @@ The status line and `/savings` command are built to read RTK analytics and displ
 ### Quick install (recommended)
 
 ```bash
-git clone https://github.com/nodox-studio/nodox-open.git
-cd nodox-open/claude-code-config
+git clone https://github.com/nodox-studio/claukit.git
+cd claukit/claude-code-config
 bash install.sh
 ```
 
@@ -72,23 +72,53 @@ The installer will:
    rtk init -g
    ```
 
+## Obsidian MCP (optional -- for `/workspace`)
+
+The `/workspace` command connects to your Obsidian vaults via MCP to load project context. To use it, you need:
+
+1. [Obsidian](https://obsidian.md/) with the **Local REST API** plugin enabled
+2. The [Obsidian MCP server](https://github.com/newtype-01/obsidian-mcp) (`@huangyihe/obsidian-mcp`)
+
+Setup:
+
+```bash
+claude mcp add my-vault \
+  --env OBSIDIAN_VAULT_PATH=/path/to/your/vault \
+  --env OBSIDIAN_API_TOKEN=your-token \
+  --env OBSIDIAN_API_PORT=27123 \
+  -- npx -y @huangyihe/obsidian-mcp
+```
+
+> **Note:** Obsidian must be open with the vault loaded for the MCP to work. Without it, `/workspace` still works but won't pull context from your notes.
+
 ## Stack
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) -- Anthropic's CLI for Claude
 - [RTK](https://github.com/rtk-ai/rtk) -- Rust Token Killer, token-optimized CLI proxy
+- [Obsidian MCP](https://github.com/newtype-01/obsidian-mcp) -- Connect your Obsidian vaults to Claude Code (optional)
 - Works with any terminal (optimized for [Ghostty](https://ghostty.org/) + tmux)
 
 ---
 
 Part of my journey from Product Designer to Design Engineer -- building with AI agents, not just designing for them.
 
+A free product by [Nodox Studio](https://nodox.studio), made with heart by Guille Varela.
+
+### Nodox Studio
+- Web: [nodox.studio](https://nodox.studio)
+- Email: somos@nodox.studio
+
+### Guille Varela
+- LinkedIn: [linkedin.com/in/guillevarela](https://www.linkedin.com/in/guillevarela/)
+- Ko-fi: [ko-fi.com/guillevarela](https://ko-fi.com/guillevarela) ☕
+
 ---
 
 # Español
 
-## Claude Code Config — Design Engineer Toolkit
+## ClaudeKit — Ahorra tokens, trabaja mejor con Claude Code
 
-Mi configuración personal de Claude Code para flujos de diseño y desarrollo de producto. Slash commands, status line e integración con RTK.
+Un toolkit que mejora tu experiencia con Claude Code. Ahorra tokens, organiza tus proyectos y protege tu configuración.
 
 **Por Guille Varela — [Nodox Studio](https://nodox.studio)**
 
@@ -132,8 +162,8 @@ El status line y el comando `/savings` leen las analíticas de RTK y muestran el
 ### Instalación rápida (recomendada)
 
 ```bash
-git clone https://github.com/nodox-studio/nodox-open.git
-cd nodox-open/claude-code-config
+git clone https://github.com/nodox-studio/claukit.git
+cd claukit/claude-code-config
 bash install.sh
 ```
 
@@ -158,12 +188,42 @@ El instalador:
    rtk init -g
    ```
 
+## Obsidian MCP (opcional — para `/workspace`)
+
+El comando `/workspace` se conecta a tus vaults de Obsidian via MCP para cargar contexto de proyecto. Necesitas:
+
+1. [Obsidian](https://obsidian.md/) con el plugin **Local REST API** habilitado
+2. El [servidor MCP de Obsidian](https://github.com/newtype-01/obsidian-mcp) (`@huangyihe/obsidian-mcp`)
+
+Configuración:
+
+```bash
+claude mcp add mi-vault \
+  --env OBSIDIAN_VAULT_PATH=/ruta/a/tu/vault \
+  --env OBSIDIAN_API_TOKEN=tu-token \
+  --env OBSIDIAN_API_PORT=27123 \
+  -- npx -y @huangyihe/obsidian-mcp
+```
+
+> **Nota:** Obsidian debe estar abierto con el vault cargado para que el MCP funcione. Sin él, `/workspace` sigue funcionando pero no cargará contexto de tus notas.
+
 ## Stack
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) — CLI oficial de Anthropic para Claude
 - [RTK](https://github.com/rtk-ai/rtk) — Rust Token Killer, proxy CLI optimizado para tokens
+- [Obsidian MCP](https://github.com/newtype-01/obsidian-mcp) — Conecta tus vaults de Obsidian a Claude Code (opcional)
 - Funciona con cualquier terminal (optimizado para [Ghostty](https://ghostty.org/) + tmux)
 
 ---
 
 De mi viaje de Product Designer a Design Engineer — construyendo con agentes AI, no solo diseñando para ellos.
+
+Un producto de uso libre de [Nodox Studio](https://nodox.studio), creado con corazón por Guille Varela.
+
+### Nodox Studio
+- Web: [nodox.studio](https://nodox.studio)
+- Email: somos@nodox.studio
+
+### Guille Varela
+- LinkedIn: [linkedin.com/in/guillevarela](https://www.linkedin.com/in/guillevarela/)
+- Ko-fi: [ko-fi.com/guillevarela](https://ko-fi.com/guillevarela) ☕
