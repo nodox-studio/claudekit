@@ -4,6 +4,15 @@ All notable changes to ClaudeKit will be documented in this file.
 
 ## [Unreleased]
 
+### Security
+- **Hardened RTK install** — Replaced `curl|bash` with download-then-execute pattern (temp file + cleanup)
+- **Removed hardcoded user path** — `lock-claude.md` and `unlock-claude.md` now use `os.path.expanduser('~')` instead of `/Users/guillermo.varela/`
+- **Session timer moved from `/tmp/`** — Now uses `~/.claude/.session-timers/` to prevent symlink attacks
+- **Obsidian token input hidden** — `read -s` hides API token while typing
+- **Pinned `@huangyihe/obsidian-mcp@1.6.0`** — Prevents supply chain risk from unpinned `npx -y`
+- **Scaffold path validation** — Resolves with `realpath` to prevent path traversal
+- **`$LANG` → `$CK_LANG`** — No longer overwrites system locale variable
+
 ### Added
 - **`/guard` — Security dashboard** — Reviews environment security (npmrc, config protection, dependencies). Installs `/lock-claude` and `/unlock-claude` as a single security package. Includes npmrc hardening (`ignore-scripts=true`), npm version check for `min-release-age`, and project-level `.npmrc` support.
 - **Advanced security recommendations** — `/guard` links to `anthropics/claude-code-security-review` (GitHub Action), `latiotech/secure-supply-chain-skills` (supply chain audit), and `attach-dev/attach-guard` (Socket.dev hook).

@@ -46,8 +46,8 @@ The status line and `/savings` command are built to read RTK analytics and displ
 ### Quick install (recommended)
 
 ```bash
-git clone https://github.com/nodox-studio/claukit.git
-cd claukit/claude-code-config
+git clone https://github.com/nodox-studio/claudekit.git
+cd claudekit/claude-code-config
 bash install.sh
 ```
 
@@ -68,7 +68,7 @@ The installer will:
 
 2. Install RTK (optional but recommended):
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+   curl -fsSL -o /tmp/rtk-install.sh https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh && bash /tmp/rtk-install.sh && rm -f /tmp/rtk-install.sh
    rtk init -g
    ```
 
@@ -86,7 +86,7 @@ claude mcp add my-vault \
   --env OBSIDIAN_VAULT_PATH=/path/to/your/vault \
   --env OBSIDIAN_API_TOKEN=your-token \
   --env OBSIDIAN_API_PORT=27123 \
-  -- npx -y @huangyihe/obsidian-mcp
+  -- npx -y @huangyihe/obsidian-mcp@1.6.0
 ```
 
 > **Note:** Obsidian must be open with the vault loaded for the MCP to work. Without it, `/workspace` still works but won't pull context from your notes.
@@ -162,8 +162,8 @@ El status line y el comando `/savings` leen las analíticas de RTK y muestran el
 ### Instalación rápida (recomendada)
 
 ```bash
-git clone https://github.com/nodox-studio/claukit.git
-cd claukit/claude-code-config
+git clone https://github.com/nodox-studio/claudekit.git
+cd claudekit/claude-code-config
 bash install.sh
 ```
 
@@ -184,7 +184,7 @@ El instalador:
 
 2. Instala RTK (opcional pero recomendado):
    ```bash
-   curl -fsSL https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh | bash
+   curl -fsSL -o /tmp/rtk-install.sh https://raw.githubusercontent.com/rtk-ai/rtk/master/install.sh && bash /tmp/rtk-install.sh && rm -f /tmp/rtk-install.sh
    rtk init -g
    ```
 
@@ -202,7 +202,7 @@ claude mcp add mi-vault \
   --env OBSIDIAN_VAULT_PATH=/ruta/a/tu/vault \
   --env OBSIDIAN_API_TOKEN=tu-token \
   --env OBSIDIAN_API_PORT=27123 \
-  -- npx -y @huangyihe/obsidian-mcp
+  -- npx -y @huangyihe/obsidian-mcp@1.6.0
 ```
 
 > **Nota:** Obsidian debe estar abierto con el vault cargado para que el MCP funcione. Sin él, `/workspace` sigue funcionando pero no cargará contexto de tus notas.
